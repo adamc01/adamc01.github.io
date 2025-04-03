@@ -1,1 +1,44 @@
-Can you see this?
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Names Picker</title>
+</head>
+<body>
+    <h1>Random Names Picker</h1>
+    <input type="text" id="nameInput" placeholder="Enter names separated by commas" size="40">
+    <button onclick="selectNames()">Select</button>
+    <p id="result"></p>
+
+    <script>
+        function getNamesFromQueryString() {
+            const params = new URLSearchParams(window.location.search);
+            const names = params.get('names');
+            return names ? names.split(',') : [];
+        }
+
+        function selectNames() {
+            const inputNames = document.getElementById('nameInput').value.split(',');
+            const queryNames = getNamesFromQueryString();
+            const allNames = [...new Set([...inputNames, ...queryNames])].filter(name => name.trim() !== '');
+
+            if (allNames.length < 2) {
+                document.getElementById('result').innerText = 'Please enter at least two names.';
+                return;
+            }
+
+            const selectedNames = [];
+            while (selectedNames.length < 2) {
+                const randomIndex = Math.floor(Math.random() * allNames.length);
+                const selectedName = allNames[randomIndex];
+                if (!selectedNames.includes(selectedName)) {
+                    selectedNames.push(selectedName);
+                }
+            }
+
+            document.getElementById('result').innerText = `Selected names: ${selectedNames.join(', ')}`;
+        }
+    </script>
+</body>
+</html>
