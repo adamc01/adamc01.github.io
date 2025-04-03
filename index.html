@@ -25,7 +25,7 @@
             }
         }
 
-       ) {
+        function updateQueryString(names) {
             const params = new URLSearchParams(window.location.search);
             params.set('names', names.join(','));
             window.history.replaceState({}, '', `${window.location.pathname}?${params}`);
@@ -56,13 +56,6 @@
 
         // Populate the input field with query string names on page load
         window.onload = populateInputField;
-
-        // Allow pressing Enter to select names
-        document.getElementById('nameInput').addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                selectNames();
-            }
-        });
     </script>
 </body>
 </html>
