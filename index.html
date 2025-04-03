@@ -8,14 +8,14 @@
 <body>
     <h1>Random Names Picker</h1>
     <input type="text" id="nameInput" placeholder="Enter names separated by commas" size="40">
-    <button onclick="selectNames()">Generate!</button>
+    <button onclick="selectNames()">Select</button>
     <p id="result"></p>
 
     <script>
         function getNamesFromQueryString() {
             const params = new URLSearchParams(window.location.search);
             const names = params.get('names');
-            return names ? names.split(',') : [];
+            return names ? decodeURIComponent(names).split(',') : [];
         }
 
         function populateInputField() {
@@ -27,7 +27,7 @@
 
         function updateQueryString(names) {
             const params = new URLSearchParams(window.location.search);
-            params.set('names', names.join(','));
+            params.set('names', encodeURIComponent(names.join(',')));
             window.history.replaceState({}, '', `${window.location.pathname}?${params}`);
         }
 
