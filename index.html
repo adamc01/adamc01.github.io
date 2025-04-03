@@ -25,13 +25,9 @@
             }
         }
 
-        function updateQueryString(names) {
+       ) {
             const params = new URLSearchParams(window.location.search);
-            if (names.length > 0) {
-                params.set('names', names.join(','));
-            } else {
-                params.delete('names');
-            }
+            params.set('names', names.join(','));
             window.history.replaceState({}, '', `${window.location.pathname}?${params}`);
         }
 
@@ -42,7 +38,6 @@
 
             if (allNames.length < 2) {
                 document.getElementById('result').innerText = 'Please enter at least two names.';
-                updateQueryString([]);
                 return;
             }
 
