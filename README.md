@@ -1,4 +1,4 @@
 ## My Stuff
-https://adamc01.github.io/picker -  A random name picker to be used for selecting PR reviewers.
+[https://adamc01.github.io/picker](https://adamc01.github.io/picker) -  A random name picker to be used for selecting PR reviewers.
 
-https://gist.github.com/adamc01/22299187af2972016bfd2aae4367ccc6 - Setting up Ktlint for an Android project (Git pre-commit linter hook)
+[https://gist.github.com/adamc01/22299187af2972016bfd2aae4367ccc6](https://gist.github.com/adamc01/22299187af2972016bfd2aae4367ccc6) - Setting up Ktlint for an Android project (Git pre-commit linter hook)
